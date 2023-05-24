@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Page</title>
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.8em;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Registration</h2>
+  <form id="registration-form" onsubmit="return validateForm()">
+    <div>
+      <label for="first-name">First Name:</label>
+      <input type="text" id="first-name" name="first-name" required>
+      <span class="error-message" id="first-name-error">First Name must contain only alphabets and should be at least 6 characters long.</span>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <span class="error-message" id="password-error">Password should be at least 6 characters long.</span>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <span class="error-message" id="email-error">Invalid email address.</span>
+    </div>
+    <div>
+      <label for="mobile-number">Mobile Number:</label>
+      <input type="text" id="mobile-number" name="mobile-number" required>
+      <span class="error-message" id="mobile-number-error">Mobile number should contain 10 digits only.</span>
+    </div>
+    <div>
+      <label for="last-name">Last Name:</label>
+      <input type="text" id="last-name" name="last-name" required>
+      <span class="error-message" id="last-name-error">Last Name is required.</span>
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" required></textarea>
+      <span class="error-message" id="address-error">Address is required.</span>
+    </div>
+    <div>
+      <input type="submit" value="Register">
+    </div>
+  </form>
+
+  <script>
+    function validateForm() {
+      var firstName = document.getElementById('first-name').value;
+      var password = document.getElementById('password').value;
+      var email = document.getElementById('email').value;
+      var mobileNumber = document.getElementById('mobile-number').value;
+      var lastName = document.getElementById('last-name').value;
+      var address = document.getElementById('address').value;
+
+      var firstNamePattern = /^[a-zA-Z]{6,}$/;
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var mobileNumberPattern = /^\d{10}$/;
+
+      var isValid = true;
+
+      if (!firstNamePattern.test(firstName)) {
+        document.getElementById('first-name-error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('first-name-error').style.display = 'none';
+      }
+
+      if (password.length < 6) {
+        document.getElementById('password-error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('password-error').style.display = 'none';
+      }
+
+      if (!emailPattern.test(email)) {
+        document.getElementById('email-error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('email-error').style.display = 'none';
+      }
+
+      if (!mobileNumberPattern.test(mobileNumber)) {
+        document.getElementById('mobile-number-error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('mobile-number-error').style.display = 'none';
+      }
+
+      if (lastName.trim() === '') {
+        document.getElementById('last-name-error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('last-name-error').style.display = 'none';
+      }
+
+      if (address.trim() === '') {
+        document.getElementById('address-error').style.display = 'block';
+        isValid = false;
+      } else {
+        document.getElementById('address-error').style.display = 'none';
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>

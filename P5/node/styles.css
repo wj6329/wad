@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #personalInfo {
+    margin-top: 40px;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  strong {
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+  }
+  
