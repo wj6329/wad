@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Login</title>
+  <script>
+    // Function to validate user login
+    function validateLogin() {
+      // Get the values from the input fields
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Check if the username is empty
+      if (username === '') {
+        alert('Please enter a username');
+        return false;
+      }
+
+      // Check if the password is empty
+      if (password === '') {
+        alert('Please enter a password');
+        return false;
+      }
+
+      // Simulate checking the login credentials
+      var validUsername = 'admin';
+      var validPassword = 'password';
+
+      if (username !== validUsername || password !== validPassword) {
+        alert('Incorrect username or password');
+        return false;
+      }
+
+      // If all validation checks pass, return true to submit the form
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h1>User Login</h1>
+  <form onsubmit="return validateLogin()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br>
+
+    <input type="submit" value="Login">
+  </form>
+</body>
+</html>
